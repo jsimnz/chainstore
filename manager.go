@@ -16,27 +16,14 @@ type StoreManager interface {
 // set via Attach(Store...). These are stores that the manager is responsible
 // for
 type DefaultManager struct {
-	Stores []Store
+	Chain Store
 }
 
 func (m *DefaultManager) Attach(stores ...Store) {
-	m.Stores = stores
+	m.Chain = New(stores...)
 }
 
-/*func (m *DefaultManager) Skip() bool {
-	return false
-}
-
-func (m *DefaultManager) Continue() bool {
-	return true
-}
-
-func (m *DefaultManager) BeforeNext(store Store) (err error) {
-	return //noop
-}
-
-func (m *DefaultManager) AfterNext(store Store)*/
-
+// Ideas:
 // s3store := s3store.New(...)
 // batchManager.Attach(s3store)
 // batchManager.Use(s3store)
