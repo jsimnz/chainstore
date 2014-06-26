@@ -12,7 +12,7 @@ type StoreManager interface {
 // Default implementation of Manager
 // Should be embedded as a pointer in you own manager implementation
 // and overwrite any methods you need your self.
-// It exposes a []Store called Stores to your implementation which is
+// It exposes a Chain for your implementation which is
 // set via Attach(Store...). These are stores that the manager is responsible
 // for
 type DefaultManager struct {
